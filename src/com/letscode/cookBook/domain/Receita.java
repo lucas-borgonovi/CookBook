@@ -11,12 +11,18 @@ public class Receita {
     private int tempoPreparo;
     private Rendimento rendimento;
     private List<Ingrediente> ingredientes;
-    private String[] modoPreparo;
+    private List<String> modoPreparo;
 
     public Receita(String nome, Categoria categoria) {
         this.ingredientes = new ArrayList<>();
+        this.modoPreparo = new ArrayList<>();
         this.nome = nome;
         this.categoria = categoria;
+    }
+
+    public Receita(){
+        this.ingredientes = new ArrayList<>();
+        this.modoPreparo = new ArrayList<>();
     }
 
     public String getNome() {
@@ -61,12 +67,15 @@ public class Receita {
         }
     }
 
-    public String[] getModoPreparo() {
+    public List<String> getModoPreparo() {
         return modoPreparo;
     }
 
     public void setModoPreparo(String[] modoPreparo) {
-        this.modoPreparo = modoPreparo;
+        for (String item : modoPreparo) {
+            this.modoPreparo.add(item);
+        }
+
     }
 
     @Override
